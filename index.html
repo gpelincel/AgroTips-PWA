@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@2.17.0/dist/full.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="CSS/CSS.css">
+    <script src="https://kit.fontawesome.com/bdcc87c8b0.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>AgroTips | Login</title>
+</head>
+
+<body id="body-login">
+    <div class="wrap">
+        <div class="hero min-h-screen text-white">
+            <div class="hero-content flex-col lg:flex-row-reverse">
+                <img class="obj-scale-down h-72 rounded shadow-2xl" src="" alt="">
+                <div>
+                    <h1 class="text-5xl font-bold">Bem vindo ao<br><i class="fa-solid fa-leaf mr-1"></i>AgroTips!</h1>
+                    <p class="py-6 text-lg">A rede social para conectar agricultores e especialistas! O mundo agrícola nunca
+                        esteve tão bem informado!</p>
+                    <!-- The button to open modal -->
+                    <label for="modal-login" class="btn btn-primary modal-button">Entrar</label>
+                </div>
+            </div>
+        </div>
+        <input type="checkbox" id="modal-login" class="modal-toggle" />
+        <div class="modal">
+            <div class="modal-box relative">
+                <label for="modal-login" class="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+                <form id="form-login" class="flex-shrink-0 w-full bg-base-100">
+                    <div>
+                        <div class="text-2xl font-bold text-center">
+                            <h1>LOGIN</h1>
+                        </div>
+                        <div class="form-control">
+                            <label class="label">
+                                <span class="label-text">Email</span>
+                            </label>
+                            <input type="text" name="email" placeholder="Email" class="input input-bordered" />
+                        </div>
+                        <div class="form-control">
+                            <label class="label">
+                                <span class="label-text">Senha</span>
+                            </label>
+                            <input type="password" name="password" placeholder="Senha" class="input input-bordered" />
+                            <label class="label">
+                                <p>Não possui uma conta ainda? <a href="cadastro.html" class="link text-primary">Clique
+                                        aqui</a></p>
+                            </label>
+                        </div>
+                        <div class="form-control mt-6">
+                            <button type="submit" class="btn btn-active btn-primary">Login</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="./script/script.js"></script>
+    <script>login()</script>
+</body>
+
+</html>

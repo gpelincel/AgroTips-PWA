@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@2.17.0/dist/full.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="CSS/CSS.css">
+    <script src="https://kit.fontawesome.com/bdcc87c8b0.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>AgroTips | Cadastro</title>
+</head>
+
+<body id="body-cad">
+    <div class="wrap">
+        <div class="hero min-h-screen text-white">
+            <div class="hero-content flex-col lg:flex-row-reverse">
+                <form class="flex-shrink-0 bg-base-100 p-4 rounded shadow-xl">
+                    <div>
+                        <div class="text-2xl font-bold text-center">
+                            <h1>CADASTRE-SE JÁ!</h1>
+                        </div>
+                        <div class="grid grid-cols-2 gap-2">
+                            <div id="name" class="form-control">
+                                <label class="label">
+                                    <span class="label-text">Nome</span>
+                                </label>
+                                <input type="text" placeholder="Nome" class="input input-bordered" name="nome" />
+                            </div>
+                            <div id="last-name" class="form-control">
+                                <label class="label">
+                                    <span class="label-text">Sobrenome</span>
+                                </label>
+                                <input type="text" placeholder="Sobrenome" class="input input-bordered"
+                                    name="sobrenome" />
+                            </div>
+                        </div>
+                        <div class="form-control">
+                            <label class="label">
+                                <span class="label-text">Email</span>
+                            </label>
+                            <input type="text" placeholder="Email" class="input input-bordered" name="email" />
+                        </div>
+                        <div class="form-control">
+                            <label class="label">
+                                <span class="label-text">Senha</span>
+                            </label>
+                            <input type="password" placeholder="Senha" class="input input-bordered" name="senha" />
+                        </div>
+                        <div class="form-control">
+                            <label class="label">
+                                <span class="label-text">Categoria</span>
+                            </label>
+                            <select class="select select-bordered w-full" name="id_cat">
+                                <option disabled selected>Selecione a sua categoria</option>
+                                <option value="1">Pequeno agricultor</option>
+                                <option value="2">Pequeno produtor de alimentos</option>
+                                <option value="3">Apoiador</option>
+                            </select>
+                        </div>
+                        <label class="label">
+                            <p>Já possui uma conta? <a href="index.html" class="link text-primary">Clique aqui</a>
+                            </p>
+                        </label>
+                        <div class="btn-group mt-6 flex justify-center">
+                            <label class="btn btn-primary"><button type="submit">Cadastrar</button></label>
+                            <label class="btn btn-error"><button type="reset">Limpar</button></label>
+                        </div>
+                    </div>
+                </form>
+                <div>
+                    <h1 class="text-5xl font-bold">Faça parte da <i class="fa-solid fa-leaf mr-1"></i>AgroTips</h1>
+                    <p class="py-6">Na AgroTips você terá contato com agricultores, produtores de alimento e
+                        espacialistas na área do mundo todo! Basta fazer o cadastro para receber dicas e informações
+                        gratuitas que aumentaram o rendimento da sua colheita!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script/script.js"></script>
+    <script>
+        const form = document.querySelector("form");
+
+        form.addEventListener("submit", (e) => {
+
+            e.preventDefault();
+
+            let data = new FormData(form);
+
+            fetch(url_api + 'user', {
+                method: "POST",
+                mode: "cors",
+                body: data
+            })
+                .then(response => response.json())
+                .then(return_data => {
+                    if (return_data.status) {
+                        alert(return_data.data);
+                        form.reset();
+                    }
+                })
+                .catch(err => console.log("Erro", err));
+        });
+    </script>
+</body>
+
+</html>
